@@ -11,7 +11,6 @@ services:
     environment:
       - GOTIFY_BIND=0.0.0.0
 
-      
   uptime-kuma:
     image: louislam/uptime-kuma:1
     container_name: uptime-kuma
@@ -31,6 +30,8 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
     networks:
       - internal
+    environment:
+      - DOZZLE_BIND=0.0.0.0
 
 networks:
   internal:
