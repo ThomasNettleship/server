@@ -8,11 +8,7 @@ services:
       - /etc/localtime:/etc/localtime:ro
     networks:
       - internal
-    ports:
-      - 8080:80
-    environment:
-      - GOTIFY_BIND=0.0.0.0
-
+      
   uptime-kuma:
     image: louislam/uptime-kuma:1
     container_name: uptime-kuma
@@ -23,8 +19,6 @@ services:
       - /etc/localtime:/etc/localtime:ro
     networks:
       - internal
-    ports:
-      - 3001:3001
 
   dozzle:
     image: amir20/dozzle:latest
@@ -34,8 +28,6 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
     networks:
       - internal
-    ports:
-      - 8888:8080
 
 networks:
   internal:
