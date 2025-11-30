@@ -1,0 +1,15 @@
+http:
+  routers:
+    dozzle:
+      rule: "Host(`dozzle.internal.nettleship.net`)"
+      entrypoints:
+        - websecure
+      service: dozzle
+      tls:
+        certResolver: letsencrypt
+
+  services:
+    dozzle:
+      loadBalancer:
+        servers:
+          - url: "http://dozzle:8080"
