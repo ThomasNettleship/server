@@ -1,0 +1,15 @@
+http:
+  routers:
+    flame-internal:
+      rule: "Host(`home.internal.nettleship.net`)"
+      entrypoints:
+        - websecure
+      service: flame
+      tls:
+        certResolver: letsencrypt
+
+  services:
+    flame:
+      loadBalancer:
+        servers:
+          - url: "http://flame:5005"
