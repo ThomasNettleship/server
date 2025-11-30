@@ -1,0 +1,15 @@
+http:
+  routers:
+    uptime-kuma:
+      rule: "Host(`status.internal.nettleship.net`)"
+      entrypoints:
+        - websecure
+      service: uptime-kuma
+      tls:
+        certResolver: letsencrypt
+
+  services:
+    uptime-kuma:
+      loadBalancer:
+        servers:
+          - url: "http://uptime-kuma:3001"
