@@ -47,8 +47,8 @@ services:
       - "3000:3000"       # Setup
       - "8080:80/tcp"     # Admin Dashboard
     volumes:
-      - ./adguard/work:/opt/adguardhome/work
-      - ./adguard/conf:/opt/adguardhome/conf
+      - /srv/docker/adguard/data/work:/opt/adguardhome/work
+      - /srv/docker/adguard/data/conf:/opt/adguardhome/conf
 
 networks:
   internal:
