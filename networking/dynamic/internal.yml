@@ -1,0 +1,15 @@
+http:
+  routers:
+    whoami-internal:
+      rule: "Host(`internal.nettleship.net`)"
+      entrypoints:
+        - websecure
+      service: whoami
+      tls:
+        certResolver: letsencrypt
+
+  services:
+    whoami:
+      loadBalancer:
+        servers:
+          - url: "http://whoami:80"
